@@ -39,13 +39,5 @@ export class UserController {
     return this.authService.login(newUser)
   }
 
-  @UseGuards(JwtAuthGuard)
-  @Get(":username/articles")
-  async getAllUserPosts(
-    @AuthUser() user: User,
-    @Param('username') username:string) {
-    console.log(username)
-    return this.userService.getPostsOfUser(user.id)
-  }
 
 }
